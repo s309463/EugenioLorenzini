@@ -16,7 +16,7 @@ export function BookCard({ book }: { book: Book }) {
     src={book.coverImage || '/placeholder.svg'}
     alt={`Copertina di ${book.title}`}
     className={`h-full w-full object-contain p-1 ${
-      rotateCover ? 'rotate-[270deg] scale-[1.35]' : ''
+      rotateCover ? 'rotate-[270deg] scale-[1.55]' : ''
     }`}
   />
 
