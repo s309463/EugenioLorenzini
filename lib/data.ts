@@ -189,25 +189,29 @@ export const articles: Article[] = Array.from({ length: 9 }, (_, i) => ({
 export const events: EventItem[] = Array.from({ length: 4 }, (_, i) => ({
   id: `event-${i + 1}`,
   title: [
-    'Lorem Ipsum Book Festival',
+    'Presentazione alla biblioteca di Pino Torinese',
     'Reading & Conversation',
     'An Evening of Prose',
     'Meet the Author',
   ][i],
-  date: `${['15 October', '29 October', '11 November', '6 December'][i]} 2025`,
-  time: `${18 + i}:00`,
-  location: ['Teatro Ipsum', 'Libreria Dolor', 'Auditorium Amet', 'Sala Consectetur'][i],
-  city: ['Torino', 'Napoli', 'Genova', 'Palermo'][i],
+  date: `${['7 Novembre', '29 October', '11 November', '6 December'][i]} 2025`,
+  time: `${17 + i}:00`,
+  location: ['Biblioteca A. Caselle', 'Libreria Dolor', 'Auditorium Amet', 'Sala Consectetur'][i],
+  city: ['Pino Torinese', 'Napoli', 'Genova', 'Palermo'][i],
   description: LOREM_SHORT,
   image: photo(`event-${i}`, 800, 500),
   link: '#',
 }))
 
 export const comments: ReaderComment[] = [
-  { id: 'c1', name: 'Giulia Rossi', comment: LOREM_SHORT },
-  { id: 'c2', comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.' },
-  { id: 'c3', name: 'Marco Bianchi', comment: LOREM_SHORT },
-  { id: 'c4', name: 'Elena Conti', comment: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.' },
-  { id: 'c5', comment: LOREM_SHORT },
-  { id: 'c6', name: 'Alessandro Greco', comment: 'Duis aute irure dolor in reprehenderit in voluptate velit esse.' },
+  { id: 'c1', name: 'Francesca Guerra', comment: `Inizialmente era curiosità per quel termine 'ballata' associato ad un libro di Lorenzini. Già dalla prima pagina ho capito:  il suo consueto, raffinato, stile narrativo si arricchiva di creatività linguistica con un ritmo incalzante che porta alla pagina successiva. Non mi ha stupito invece l’assoluta precisione storica della prima parte e l’efficace caratterizzazione dei personaggi della seconda. Lorenzini infatti ha abituato i suoi lettori ad apprezzare la connessione tra sua passione per la storia e inserimento felice di figure di fantasia nel contesto reale. E’ un libro che andrebbe letto almeno due volte: la prima per cogliere il messaggio storico – sociale di un periodo fondamentale del secolo scorso; la seconda per apprezzare il linguaggio narrativo ricercatissimo dell’Autore.` },
+  { id: 'c2', name: 'Alessandra', comment: 'Ne sono rimasta entusiasta! La seconda parte mi è piaciuta ancora di più della prima. Non conoscevo niente di queste pagine della nostra storia, sono state raccontate benissimo e leggendo mi è venuta la voglia di andarle a cercare!!' },
+  { id: 'c3', name: 'Paolo Casini', comment: 'Mi è piaciuto molto sia per il rigore della ricostruzione storica che per la forma inedita. L’ho letto con piacere in un batter d’occhio.' },
+  { id: 'c4', name: 'N.M.', comment: 'Bello davvero! Emozionante; mi ero fermata ad un certo punto, perché ho una sensibilità su certi argomenti, ma anche temi delicati sono stati affrontati con maestria. Un libro che trasmette emozioni e che non si dimentica.' },
+  { id: 'c5', name: 'Edda', comment: 'Complimenti, ho appena finito di leggere il libro, che mi ha coinvolta per lo stile di scrittura e l’attualità nonostante argomenti per me ignoti che ho comunque letto volentieri.' },
+  { id: 'c6', name: 'M.D.', comment: 'Bellissimo! Come gli sarà venuto in mente di scriverlo come ballata? Ha saputo dare un ritmo tale che sembra di avvertire l’urgenza di terminare le navi in fretta. Una storia scritta benissimo, coinvolgente, con delle figure femminili vive e non scontate. Poteva essere retorico o scontato ed invece ha saputo parlare della guerra e dello sforzo bellico in modo unico e avvincente!' },
+  { id: 'c7', name: 'Fabrizio Maestrini', comment: 'Mi sono commosso. Inaspettato, spiazzante.'},
+  { id: 'c8', name: 'Dario Lupi', comment: 'Lo ho trovato estremamente epico e poetico e ha sbloccato in me alcuni ricordi che ho provato la prima volta che ho visitato il cantiere di mio padre. Il testo scorre, appassiona e riesce a trascinarti nello spirito di quel tempo e di quell’impresa. La tematica può sembrare di nicchia, ma di fatto gli avvenimenti parlano all’animo, narrando una storia che è di ingegno, sacrificio, sofferenza e pertinacia.'},
+  { id: 'c9', name: '', comment: ''},
+  { id: 'c10', name: '', comment: ''}
 ]
