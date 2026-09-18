@@ -4,7 +4,7 @@ import type { Book } from '@/lib/data'
 
 export function BookCard({ book }: { book: Book }) {
   const rotateCover =
-  book.id === '1808-quasi-una-storia' || book.id === '179-Gradi'
+  book.id === '1808-quasi-una-storia'
   return (
     <Link
       href={`/books/${book.id}`}
