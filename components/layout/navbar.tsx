@@ -1,0 +1,97 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
+import { cn } from '@/lib/utils'
+
+const links = [
+  { label: 'Home', href: '/#home' },
+  { label: 'Biography', href: '/#biography' },
+  { label: 'Articles', href: '/#articles' },
+  { label: 'Books', href: '/#books' },
+  { label: 'Upcoming Events', href: '/#events' },
+  { label: 'Reader Comments', href: '/#comments' },
+]
+
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <header
+      className={cn(
+        'fixed inset-x-0 top-0 z-50 transition-all duration-500',
+        scrolled
+          ? 'border-b border-border/70 bg-background/85 py-3 backdrop-blur-md'
+          : 'border-b border-transparent bg-transparent py-5',
+      )}
+    >
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6">
+        <Link
+          href="/#home"
+          className={cn(
+            'font-serif text-lg font-semibold tracking-tight transition-colors',
+            scrolled ? 'text-foreground' : 'text-background drop-shadow-sm',
+          )}
+        >
+          Eugenio Lorenzini
+        </Link>
+
+        <ul className="hidden items-center gap-8 md:flex">
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className={cn(
+                  'text-sm tracking-wide transition-colors hover:text-accent',
+                  scrolled ? 'text-muted-foreground' : 'text-background/90 drop-shadow-sm',
+                )}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          className={cn(
+            'md:hidden transition-colors',
+            scrolled ? 'text-foreground' : 'text-background',
+          )}
+        >
+          {open ? <X className="size-6" /> : <Menu className="size-6" />}
+        </button>
+      </nav>
+
+      {open && (
+        <div className="mx-auto mt-3 max-w-6xl px-6 md:hidden">
+          <ul className="flex flex-col gap-1 rounded-lg border border-border bg-card p-3 shadow-lg">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-md px-3 py-2 text-sm text-foreground transition-colors hover:bg-secondary hover:text-accent"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </header>
+  )
+}
