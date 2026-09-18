@@ -49,9 +49,9 @@ export function ReaderCommentsCarousel() {
         <Reveal>
           <SectionHeading
             align="center"
-            eyebrow="Voices from the page"
-            title="What Readers Say"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Reflections shared by readers around the world."
+            eyebrow=""
+            title="Cosa dicono i lettori"
+            description="Qualche lettore ha deciso di commentare il libro dopo averlo letto"
           />
         </Reveal>
 

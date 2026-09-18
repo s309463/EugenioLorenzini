@@ -10,9 +10,9 @@ export function UpcomingEvents() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <SectionHeading
-            eyebrow="Where to find the author"
-            title="Upcoming Events"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Book presentations, readings, and literary appearances."
+            eyebrow="Dove troverete l'autore"
+            title="Eventi futuri"
+            description="Venite se avete voglia di fare due chiacchiere o farvi firmare il libro"
           />
         </Reveal>
 
