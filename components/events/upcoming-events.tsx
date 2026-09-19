@@ -29,10 +29,10 @@ export function UpcomingEvents() {
             <div className="flex flex-col items-center gap-4 rounded-lg border border-dashed border-border bg-card px-6 py-20 text-center">
               <CalendarX className="size-10 text-muted-foreground" aria-hidden="true" />
               <p className="font-serif text-xl text-foreground">
-                No upcoming events scheduled at the moment.
+                Non ci sono eventi programmati.
               </p>
               <p className="max-w-sm text-sm text-muted-foreground">
-                Lorem ipsum dolor sit amet. Please check back soon for new dates.
+                Controlla tra qualche giorno se ci sono nuove date
               </p>
             </div>
           </Reveal>

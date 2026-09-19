@@ -49,7 +49,6 @@ export type EventItem = {
   city: string
   description: string
   image?: string
-  link?: string
 }
 
 export type ReaderComment = {
@@ -127,7 +126,7 @@ export const books: Book[] = [
     year: 2012,
     coverImage: '/cop_illustratore.jpg',
     shortDescription: "'L’illustratore' è un autentico romanzo storico che si snoda sul finire del XVIII secolo.",
-    plot: `${"L’illustratore” è un autentico romanzo storico che si snoda sul finire del XVIII secolo. Tre fratelli di una famiglia ebraica di Tunisi partono sul finire del 1700 per tre diverse destinazioni: Marsiglia, Livorno ed Alessandria D’Egitto. Nel libro trovano spazio fatti d’arme come le campagne napoleoniche in Italia ed Egitto, rapporti familiari, vicende personali e sentimentali. Fanno da sfondo alle vicende dei protagonisti da una parte il duro confronto tra le culture ebraica, araba e cristiana e dall’altra ripetuti episodi di oppressione. Il tutto ricostruito e narrato con maestria e assoluta attendibilità storica"}`,
+    plot: `${"Tre fratelli di una famiglia ebraica di Tunisi partono sul finire del 1700 per tre diverse destinazioni: Marsiglia, Livorno ed Alessandria D’Egitto. Nel libro trovano spazio fatti d’arme come le campagne napoleoniche in Italia ed Egitto, rapporti familiari, vicende personali e sentimentali. Fanno da sfondo alle vicende dei protagonisti da una parte il duro confronto tra le culture ebraica, araba e cristiana e dall’altra ripetuti episodi di oppressione. Il tutto ricostruito e narrato con maestria e assoluta attendibilità storica"}`,
     presentations: makePresentations('ombre'),
     awards: makeAwards('ombre'),
   },
@@ -186,21 +185,19 @@ export const articles: Article[] = Array.from({ length: 9 }, (_, i) => ({
 
 }))
 
-export const events: EventItem[] = Array.from({ length: 4 }, (_, i) => ({
+export const events: EventItem[] = Array.from({ length: 3 }, (_, i) => ({
   id: `event-${i + 1}`,
   title: [
     'Presentazione alla biblioteca di Pino Torinese',
-    'Reading & Conversation',
-    'An Evening of Prose',
-    'Meet the Author',
+    'Presentazione alla Lega Navale di Pisa',
+    'Presentazione al Museo Navale di Spezia'
   ][i],
-  date: `${['7 Novembre', '29 October', '11 November', '6 December'][i]} 2025`,
+  date: `${['7 Novembre', 'coming soon', 'coming soon'][i]}`,
   time: `${17 + i}:00`,
-  location: ['Biblioteca A. Caselle', 'Libreria Dolor', 'Auditorium Amet', 'Sala Consectetur'][i],
-  city: ['Pino Torinese', 'Napoli', 'Genova', 'Palermo'][i],
+  location: ['Biblioteca A. Caselle', 'Lega Navale', 'Museo Navale'][i],
+  city: ['Pino Torinese', 'Pisa', 'Spezia'][i],
   description: LOREM_SHORT,
   image: photo(`event-${i}`, 800, 500),
-  link: '#',
 }))
 
 export const comments: ReaderComment[] = [
