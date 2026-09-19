@@ -114,8 +114,8 @@ export const books: Book[] = [
     title: "1808",
     subtitle: "(quasi una storia)",
     year: 2001,
-    coverImage: '/cop_1808.png',
-    shortDescription: "",
+    coverImage: '/cop_1808v2.png',
+    shortDescription: "Scritto a metà strada tra sogno e realtà, il romanzo storico segue le vicende di un giovane ufficiale inviato a Parigi nel 1808.",
     plot: `${LOREM_LONG} ${LOREM_LONG}`,
     presentations: makePresentations('silenzio'),
     awards: makeAwards('silenzio'),
@@ -136,8 +136,8 @@ export const books: Book[] = [
     subtitle: '(triangolo imperfetto)',
     year: 2019,
     coverImage: '/cop_179.png',
-    shortDescription: LOREM_SHORT,
-    plot: `${LOREM_LONG}`,
+    shortDescription: "Tre storie che si intrecciano; tre punti di vista che si sovrappongono, ma non coincidono",
+    plot: `Tre storie che si intrecciano; tre cifre narrative completamente diverse: una nonna che si racconta ai ripoti, la cartella clinica di un ospedale psichiatrico, una tesi di laurea, collocati nel tempo su un arco di mezzo secolo. Una sfida stilistica ben riuscita. `,
     presentations: makePresentations('fiume'),
     awards: makeAwards('fiume'),
   },
@@ -197,7 +197,6 @@ export const events: EventItem[] = Array.from({ length: 3 }, (_, i) => ({
   location: ['Biblioteca A. Caselle', 'Lega Navale', 'Museo Navale'][i],
   city: ['Pino Torinese', 'Pisa', 'Spezia'][i],
   description: LOREM_SHORT,
-  image: photo(`event-${i}`, 800, 500),
 }))
 
 export const comments: ReaderComment[] = [

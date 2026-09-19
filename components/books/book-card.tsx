@@ -3,8 +3,8 @@ import { ArrowUpRight } from 'lucide-react'
 import type { Book } from '@/lib/data'
 
 export function BookCard({ book }: { book: Book }) {
-  const rotateCover =
-  book.id === '1808-quasi-una-storia'
+  const isRotatedCover = book.id === '1808-quasi-una-storia'
+
   return (
     <Link
       href={`/books/${book.id}`}
@@ -15,9 +15,7 @@ export function BookCard({ book }: { book: Book }) {
   <img
     src={book.coverImage || '/placeholder.svg'}
     alt={`Copertina di ${book.title}`}
-    className={`h-full w-full object-contain p-1 ${
-      rotateCover ? 'rotate-[270deg] scale-[1.55]' : ''
-    }`}
+    className="h-full w-full object-contain p-1"
   />
 
   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

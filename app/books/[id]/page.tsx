@@ -21,7 +21,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params
   const book = getBook(id)
-  if (!book) return { title: 'Book not found' }
+  if (!book) return { title: 'Libro non trovato' }
   return {
     title: `${book.title} — Eugenio Lorenzini`,
     description: book.shortDescription,
@@ -49,7 +49,7 @@ export default async function BookPage({
               className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
             >
               <ArrowLeft className="size-4" />
-              Back to all books
+              Torna a tutti i libri
             </Link>
 
             <div className="mt-10 grid gap-10 md:grid-cols-[280px_1fr] md:gap-14">
@@ -58,7 +58,7 @@ export default async function BookPage({
                 <img
                   src={book.coverImage || '/placeholder.svg'}
                   alt={`Cover of ${book.title}`}
-                  className="w-full max-w-[280px] rounded-lg shadow-2xl ring-1 ring-border"
+                  className="w-full max-w-[280px] rounded-lg object-contain shadow-2xl ring-1 ring-border"
                 />
               </Reveal>
 
@@ -87,7 +87,7 @@ export default async function BookPage({
         <section className="bg-background py-20 md:py-28">
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
-              <SectionHeading eyebrow="The story" title="Plot" />
+              <SectionHeading eyebrow="La storia" title="Riassunto" />
               <div className="mt-8 space-y-5 text-pretty leading-relaxed text-muted-foreground">
                 {book.plot.split('\n').map((para, i) => (
                   <p key={i}>{para}</p>
@@ -103,8 +103,7 @@ export default async function BookPage({
             <div className="mx-auto max-w-6xl px-6">
               <Reveal>
                 <SectionHeading
-                  eyebrow="On tour"
-                  title="Presentations"
+                  title="Presentazioni passate"
                   description="Lorem ipsum dolor sit amet. Public presentations and readings for this title."
                 />
               </Reveal>
@@ -125,8 +124,8 @@ export default async function BookPage({
             <div className="mx-auto max-w-4xl px-6">
               <Reveal>
                 <SectionHeading
-                  eyebrow="Recognition"
-                  title="Awards"
+                  eyebrow="Riconoscimenti"
+                  title="Premi"
                   description="Lorem ipsum dolor sit amet. Honours and distinctions received by this work."
                 />
               </Reveal>

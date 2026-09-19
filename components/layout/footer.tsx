@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
 const links = [
-  { label: 'Biography', href: '/#biography' },
-  { label: 'Articles', href: '/#articles' },
-  { label: 'Books', href: '/#books' },
-  { label: 'Events', href: '/#events' },
-  { label: 'Comments', href: '/#comments' },
+  { label: 'Biografia', href: '/#biography' },
+  { label: 'Libri', href: '/#books' },
+  { label: 'Eventi', href: '/#events' },
+  { label: 'Commenti', href: '/#comments' },
+  { label: 'Articoli', href: '/#articles' }
 ]
 
 export function Footer() {
@@ -16,8 +16,7 @@ export function Footer() {
           <div className="max-w-sm">
             <p className="font-serif text-2xl font-semibold">Eugenio Lorenzini</p>
             <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-              incididunt ut labore.
+              La scrittura come passione, il raccontare storie come ossessione
             </p>
           </div>
 
@@ -38,7 +37,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-primary-foreground/15 pt-6 text-center text-xs text-primary-foreground/50">
-          <p>© {new Date().getFullYear()} Eugenio Lorenzini. Lorem ipsum dolor sit amet.</p>
+          <p>© {new Date().getFullYear()} Eugenio Lorenzini.</p>
         </div>
       </div>
     </footer>
