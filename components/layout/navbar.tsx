@@ -7,11 +7,11 @@ import { cn } from '@/lib/utils'
 
 const links = [
   { label: 'Home', href: '/#home' },
-  { label: 'Biography', href: '/#biography' },
-  { label: 'Articles', href: '/#articles' },
-  { label: 'Books', href: '/#books' },
-  { label: 'Upcoming Events', href: '/#events' },
-  { label: 'Reader Comments', href: '/#comments' },
+  { label: 'Biografia', href: '/#biography' },
+  { label: 'Libri', href: '/#books' },
+  { label: 'Eventi futuri', href: '/#events' },
+  { label: 'Commenti', href: '/#comments' },
+  { label: 'Articoli', href: '/#articles' }
 ]
 
 export function Navbar() {

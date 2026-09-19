@@ -14,10 +14,10 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <BiographySection />
-        <ArticlesSection />
         <BooksTimeline />
         <UpcomingEvents />
         <ReaderCommentsCarousel />
+        <ArticlesSection />
       </main>
       <Footer />
     </>
