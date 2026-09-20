@@ -22,6 +22,13 @@ export type Award = {
   description?: string
 }
 
+export type OfficialReview = {
+  id: string
+  source: string
+  date?: string
+  quote: string
+}
+
 export type Book = {
   id: string
   title: string
@@ -31,7 +38,8 @@ export type Book = {
   shortDescription: string
   plot: string
   presentations: Presentation[]
-  awards: Award[]
+  awards?: Award[]
+  officialReviews?: OfficialReview[]
 }
 
 export type Article = {
@@ -162,14 +170,15 @@ const presentations: Presentation[] = [
   },
 ]
 
-const makeAwards = (bookSeed: string): Award[] =>
-  Array.from({ length: 2 }, (_, i) => ({
-    id: `${bookSeed}-award-${i + 1}`,
-    name: `Premio Lorem ${i === 0 ? 'd’Oro' : 'della Critica'}`,
-    year: 2016 + i,
-    organization: 'Accademia Ipsum delle Lettere',
-    description: LOREM_SHORT,
-  }))
+const makeAward = (bookSeed: string): Award[] => [
+  {
+    id: `${bookSeed}-award-1`,
+    name: 'Premio Metropoli',
+    year: 2006,
+    organization: 'Comune di Torino',
+    description: 'Premio ricevuto per il primo romanzo storico pubblicato.',
+  },
+]
 
 export const books: Book[] = [
   {
@@ -179,9 +188,9 @@ export const books: Book[] = [
     year: 2001,
     coverImage: '/cop_1808v2.png',
     shortDescription: "Scritto a metà strada tra sogno e realtà, il romanzo storico segue le vicende di un giovane ufficiale inviato a Parigi nel 1808.",
-    plot: `${LOREM_LONG} ${LOREM_LONG}`,
+    plot: `Scritto a metà strada tra sogno e realtà, il romanzo segue le vicende di un giovane ufficiale napoletano che, inviato a Parigi nel 1808, incontra una fanciulla con la quale potrebbe emergere una storia. Il libro è scritto con brevi capitoli a cui si alternano alcune poesie.`,
     presentations: [],
-    awards: makeAwards('silenzio'),
+    awards: makeAward('1808'),
   },
   {
     id: 'L-illustratore',
@@ -191,7 +200,17 @@ export const books: Book[] = [
     shortDescription: "Il romanzo segue vicissitudini di un giovane aggregato alla spedizione napoleonica in Egitto. Il romanzo si svolge tra Parigi, l’Egitto e Livorno.",
     plot: `${"'L’illustratore' è un autentico romanzo storico che si snoda sul finire del XVIII secolo. Tre fratelli di una famiglia ebraica di Tunisi partono sul finire del 1700 per tre diverse destinazioni: Marsiglia, Livorno ed Alessandria D’Egitto. Nel libro trovano spazio fatti d’arme come le campagne napoleoniche in Italia ed Egitto, rapporti familiari, vicende personali e sentimentali. Fanno da sfondo alle vicende dei protagonisti da una parte il duro confronto tra le culture ebraica, araba e cristiana e dall’altra ripetuti episodi di oppressione. Il tutto ricostruito e narrato con maestria e assoluta attendibilità storica"}`,
     presentations: [],
-    awards: makeAwards('ombre'),
+    awards: [],
+  },
+  {
+    id: 'ACW',
+    title: "ACW",
+    year: 2013,
+    coverImage: '/cop_antologia.jpg',
+    shortDescription: "Un racconto contenuto all'interno del libro 'il gioco di vivere'",
+    plot: `Un racconto sul gioco e sui rapporti interpersonali che si vengono a creare durante le partite di wargaming.`,
+    presentations: [],
+    awards: [],
   },
   {
     id: '179-Gradi',
@@ -202,7 +221,7 @@ export const books: Book[] = [
     shortDescription: "Tre storie che si intrecciano; tre punti di vista che si sovrappongono, ma non coincidono",
     plot: `Tre storie che si intrecciano; tre cifre narrative completamente diverse: una nonna che si racconta ai ripoti, la cartella clinica di un ospedale psichiatrico, una tesi di laurea, collocati nel tempo su un arco di mezzo secolo. Una sfida stilistica ben riuscita. `,
     presentations: [],
-    awards: makeAwards('fiume'),
+    awards: [],
   },
   {
     id: 'Progetto-Liberty',
@@ -210,10 +229,31 @@ export const books: Book[] = [
     subtitle: 'Ballata per eroi misconosciuti',
     year: 2025,
     coverImage: '/cop_Liberty.png',
-    shortDescription: LOREM_SHORT,
+    shortDescription: "Un esperimento, una ballata, per provare a ricordare tutte quelle figure che nell'ombra hanno permesso la vittoria degli Alleati alla fine della 2° Guerra Mondiale",
     plot: `La storia del più grande progetto navale mai realizzato vista dalla parte dei protagonisti. Nella Seconda Guerra Mondiale gli USA costruirono 2710 navi classe Liberty in meno di quattro anni partendo da un progetto inglese. Scritta in forma di ballata - romanzo, la storia abbraccia l’intero progetto, dalla progettazione nel nord dell’Inghilterra alla realizzazione in decine di cantieri negli USA all’impiego delle navi su molte rotte. Personaggi storicamente esistiti ed altri di fantasia animano le pagine in una cavalcata dal ritmo travolgente.`,
     presentations: makePresentations(presentations),
-    awards: makeAwards('stanza'),
+    awards: [],
+    officialReviews: [
+      {
+        id: 'review-panorama-difesa',
+        source: 'Panorma difesa',
+        date: 'Aprile 2026',
+        quote: 'Recensione di Angelo Pinti per la rivista "Panorama Difesa"'
+      },
+      {
+        id: 'review-leggere-tutti',
+        source: 'Leggere tutti',
+        date: 'Maggio 2026',
+        quote: 'Recensione di Loredana Simonetti per la rivista "Leggere tutti"'
+      },
+      {
+        id: 'review-lega-navale',
+        source: 'Lega Navale',
+        date: 'Luglio 2026',
+        quote: 'Recensione di Luciano Magnanelli, vicepresidente della Lega Navale Italiana, per la serie "letture in pozzetto"'
+      },
+      
+    ]
   },
 ]
 
@@ -244,10 +284,9 @@ export const events: EventItem[] = Array.from({ length: 3 }, (_, i) => ({
     'Presentazione al Museo Navale di Spezia'
   ][i],
   date: `${['7 Novembre', 'coming soon', 'coming soon'][i]}`,
-  time: `${17 + i}:00`,
+  time: ['17:00', 'da definirsi', 'da definirsi'][i],
   location: ['Biblioteca A. Caselle', 'Lega Navale', 'Museo Navale'][i],
   city: ['Pino Torinese', 'Pisa', 'Spezia'][i],
-  description: LOREM_SHORT,
 }))
 
 export const comments: ReaderComment[] = [

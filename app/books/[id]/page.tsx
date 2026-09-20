@@ -63,7 +63,7 @@ export default async function BookPage({
               </Reveal>
 
               <Reveal delay={120} className="flex flex-col justify-center">
-                <span className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.25em] text-accent">
+                <span className="inline-flex items-center gap-2 text-sm font-medium normal-case tracking-[0.25em] text-accent">
                   <CalendarDays className="size-4" />
                   {book.year}
                 </span>
@@ -97,6 +97,41 @@ export default async function BookPage({
           </div>
         </section>
 
+        {/* Official reviews */}
+        {book.officialReviews && book.officialReviews.length > 0 && (
+          <section className="bg-secondary/40 py-20 md:py-28">
+            <div className="mx-auto max-w-6xl px-6">
+              <Reveal>
+                <SectionHeading
+                  title="Recensioni"
+                  description="Frammenti di critica e attenzione mediatica dedicati al volume."
+                />
+              </Reveal>
+
+              <div className="mt-14 grid gap-6 lg:grid-cols-3">
+                {book.officialReviews.map((review, i) => (
+                  <Reveal key={review.id} delay={i * 80}>
+                    <article className="flex h-full flex-col rounded-lg border border-border bg-card p-6 shadow-sm">
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-xs font-medium tracking-[0.25em] text-accent">
+                          {review.source}
+                        </span>
+                        {review.date && (
+                          <span className="text-sm text-muted-foreground">{review.date}</span>
+                        )}
+                      </div>
+
+                      <p className="mt-5 flex-1 text-base leading-relaxed text-foreground/90">
+                        “{review.quote}”
+                      </p>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Presentations */}
         {book.presentations.length > 0 && (
           <section className="bg-secondary/40 py-20 md:py-28">
@@ -126,7 +161,7 @@ export default async function BookPage({
                 <SectionHeading
                   eyebrow="Riconoscimenti"
                   title="Premi"
-                  description="Lorem ipsum dolor sit amet. Honours and distinctions received by this work."
+                  description="Premi e riconoscimenti ricevuti da questo lavoro."
                 />
               </Reveal>
               <div className="mt-14 grid gap-5 sm:grid-cols-2">
