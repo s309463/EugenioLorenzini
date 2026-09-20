@@ -86,18 +86,81 @@ export const author = {
   bioFull: BIOGRAPHY,
 }
 
-const makePresentations = (bookSeed: string): Presentation[] =>
-  Array.from({ length: 4 }, (_, i) => ({
-    id: `${bookSeed}-pres-${i + 1}`,
-    title: `Lorem Ipsum Literary Evening ${i + 1}`,
-    date: `${12 + i} November 2025`,
-    time: `${18 + (i % 3)}:30`,
-    location: `Sala Consectetur ${i + 1}`,
-    city: ['Firenze', 'Bologna', 'Milano', 'Roma'][i % 4],
-    description: LOREM_SHORT,
-    image: photo(`${bookSeed}-pres-${i}`, 800, 500),
-    link: '#',
-  }))
+const makePresentations = (presentations: Presentation[]): Presentation[] =>
+  presentations
+
+const presentations: Presentation[] = [
+  {
+    id: 'presentazione-torino',
+    title: 'Presentazione a Torino',
+    date: '16 Gennaio 2026',
+    time: '17:30',
+    location: 'Circolo dei Lettori',
+    city: 'Torino',
+    description: "Prima presentazione del libro con l'autore davanti ad un pubblico attento e partecipe, presentato da Sandro Gros Pietro",
+    image: "/presentazione_torino.png",
+  },
+  {
+    id: 'presentazione-firenze',
+    title: 'Presentazione a Firenze',
+    date: '27 Gennaio 2026',
+    time: '18:00',
+    location: 'Lega Navale Italiana',
+    city: 'Firenze',
+    description: 'Presentazione del libro davanti ad un pubblico folto e competente che ha seguito con attenzione ed ha posto molte domande. Introduzione di Martina Buzio, Presidente della sezione, e presentazione di Vittorio Cocchi.',
+    image: "/presentazione_firenze.jpeg",
+  },
+  {
+    id: 'presentazione-livorno',
+    title: 'Presentazione a Livorno',
+    date: '30 Gennaio 2026',
+    time: '18:30',
+    location: 'Libreria Feltrinelli',
+    city: 'Livorno',
+    description: 'Presentazione davanti ad un pubblico numeroso ed attento che ha riempito il primo piano della libreria. Presentazione di Cristina Grieco.',
+    image: "/presentazione_livorno.jpeg",
+  },
+  {
+    id: 'presentazione-settignano',
+    title: 'Presentazione a Settignano',
+    date: '21 Febbraio 2026',
+    time: '18:00',
+    location: 'Casa del Popolo',
+    city: 'Settignano (FI)',
+    description: 'L’autore presenta davanti ad un pubblico folto ed interessato. Presentazione di Chiara Liberati.',
+    image: "/presentazione_settignano.jpeg",
+  },
+  {
+    id: 'presentazione-milano',
+    title: 'Presentazione a Milano',
+    date: '7 Marzo 2026',
+    time: '15:00',
+    location: "Associazione Nazionale Marinai d'Italia",
+    city: 'Milano',
+    description: 'Introduzione di Vito Berardi, segretario della sezione, e presentazione di Evelyn Galgano.',
+    image: "/presentazione_milano.jpeg",
+  },
+  {
+    id: 'presentazione-livorno2',
+    title: 'Presentazione a Livorno',
+    date: '3 Aprile 2026',
+    time: '17:30',
+    location: 'Lega Navale Italiana',
+    city: 'Livorno',
+    description: 'Presentazione davanti ad un pubblico partecipe e numeroso nonostante il Venerdì Santo. Introduzione dell’assessore Alfredo Fontana, Presidente della Sezione, e presentazione di Fabrizio Maestrini.',
+    image: "/presentazione_livorno2.png",
+  },
+  {
+    id: 'presentazione-salone-libro-torino',
+    title: 'Presentazione al Salone del Libro',
+    date: '15 Maggio 2026',
+    time: '15:00',
+    location: 'Lingotto Fiere',
+    city: 'Torino',
+    description: 'Presentazione presso lo stend della Casa Editrice Genesi durante il Salone Internazionale del Libro: un momento di scambio culturale in una cornice d’eccezione, presentato da Sandro Gros Pietro.',
+    image: "/presentazione_salone.jpeg",
+  },
+]
 
 const makeAwards = (bookSeed: string): Award[] =>
   Array.from({ length: 2 }, (_, i) => ({
@@ -117,7 +180,7 @@ export const books: Book[] = [
     coverImage: '/cop_1808v2.png',
     shortDescription: "Scritto a metà strada tra sogno e realtà, il romanzo storico segue le vicende di un giovane ufficiale inviato a Parigi nel 1808.",
     plot: `${LOREM_LONG} ${LOREM_LONG}`,
-    presentations: makePresentations('silenzio'),
+    presentations: [],
     awards: makeAwards('silenzio'),
   },
   {
@@ -125,9 +188,9 @@ export const books: Book[] = [
     title: "L'illustratore",
     year: 2012,
     coverImage: '/cop_illustratore.jpg',
-    shortDescription: "'L’illustratore' è un autentico romanzo storico che si snoda sul finire del XVIII secolo.",
-    plot: `${"Tre fratelli di una famiglia ebraica di Tunisi partono sul finire del 1700 per tre diverse destinazioni: Marsiglia, Livorno ed Alessandria D’Egitto. Nel libro trovano spazio fatti d’arme come le campagne napoleoniche in Italia ed Egitto, rapporti familiari, vicende personali e sentimentali. Fanno da sfondo alle vicende dei protagonisti da una parte il duro confronto tra le culture ebraica, araba e cristiana e dall’altra ripetuti episodi di oppressione. Il tutto ricostruito e narrato con maestria e assoluta attendibilità storica"}`,
-    presentations: makePresentations('ombre'),
+    shortDescription: "Il romanzo segue vicissitudini di un giovane aggregato alla spedizione napoleonica in Egitto. Il romanzo si svolge tra Parigi, l’Egitto e Livorno.",
+    plot: `${"'L’illustratore' è un autentico romanzo storico che si snoda sul finire del XVIII secolo. Tre fratelli di una famiglia ebraica di Tunisi partono sul finire del 1700 per tre diverse destinazioni: Marsiglia, Livorno ed Alessandria D’Egitto. Nel libro trovano spazio fatti d’arme come le campagne napoleoniche in Italia ed Egitto, rapporti familiari, vicende personali e sentimentali. Fanno da sfondo alle vicende dei protagonisti da una parte il duro confronto tra le culture ebraica, araba e cristiana e dall’altra ripetuti episodi di oppressione. Il tutto ricostruito e narrato con maestria e assoluta attendibilità storica"}`,
+    presentations: [],
     awards: makeAwards('ombre'),
   },
   {
@@ -138,7 +201,7 @@ export const books: Book[] = [
     coverImage: '/cop_179.png',
     shortDescription: "Tre storie che si intrecciano; tre punti di vista che si sovrappongono, ma non coincidono",
     plot: `Tre storie che si intrecciano; tre cifre narrative completamente diverse: una nonna che si racconta ai ripoti, la cartella clinica di un ospedale psichiatrico, una tesi di laurea, collocati nel tempo su un arco di mezzo secolo. Una sfida stilistica ben riuscita. `,
-    presentations: makePresentations('fiume'),
+    presentations: [],
     awards: makeAwards('fiume'),
   },
   {
@@ -148,20 +211,8 @@ export const books: Book[] = [
     year: 2025,
     coverImage: '/cop_Liberty.png',
     shortDescription: LOREM_SHORT,
-    plot: `${LOREM_LONG}`,
-    presentations: [
-      {
-        id: 'stanza-pres-1',
-        title: 'Lorem Ipsum Book Launch',
-        date: '3 December 2025',
-        time: '19:00',
-        location: 'Palazzo Adipiscing',
-        city: 'Venezia',
-        description: LOREM_SHORT,
-        image: '/cop_Liberty.png',
-        link: '#',
-      },
-    ],
+    plot: `La storia del più grande progetto navale mai realizzato vista dalla parte dei protagonisti. Nella Seconda Guerra Mondiale gli USA costruirono 2710 navi classe Liberty in meno di quattro anni partendo da un progetto inglese. Scritta in forma di ballata - romanzo, la storia abbraccia l’intero progetto, dalla progettazione nel nord dell’Inghilterra alla realizzazione in decine di cantieri negli USA all’impiego delle navi su molte rotte. Personaggi storicamente esistiti ed altri di fantasia animano le pagine in una cavalcata dal ritmo travolgente.`,
+    presentations: makePresentations(presentations),
     awards: makeAwards('stanza'),
   },
 ]
