@@ -1,11 +1,13 @@
 import Link from 'next/link'
+import { author } from '@/lib/data'
 
 const links = [
   { label: 'Biografia', href: '/#biography' },
   { label: 'Libri', href: '/#books' },
   { label: 'Eventi', href: '/#events' },
   { label: 'Commenti', href: '/#comments' },
-  { label: 'Articoli', href: '/#articles' }
+  { label: 'Articoli', href: '/#articles' },
+  { label: 'Contatti', href: '/#contacts' },
 ]
 
 export function Footer() {

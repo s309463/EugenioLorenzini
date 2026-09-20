@@ -139,7 +139,6 @@ export default async function BookPage({
               <Reveal>
                 <SectionHeading
                   title="Presentazioni passate"
-                  description="Lorem ipsum dolor sit amet. Public presentations and readings for this title."
                 />
               </Reveal>
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

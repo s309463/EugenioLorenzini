@@ -41,7 +41,7 @@ export function PresentationCard({ presentation }: { presentation: Presentation 
             href={presentation.link}
             className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-foreground"
           >
-            Details
+            Dettagli
             <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         )}

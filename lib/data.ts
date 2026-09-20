@@ -78,7 +78,7 @@ const LOREM_LONG =
 const BIOGRAPHY = 
   `Sono nato nel 1965 a Livorno, mi sono diplomato al Liceo Scientifico Cecioni e laureato in Ingegneria Elettronica presso l’Università di Pisa.
 Iniziai a scrivere a 16 anni per JP4, rivista nazionale di aeronautica, con la quale ho collaborato fino al 1991. Un mio articolo (Stealth ultima frontiera) è citato su Wikipedia, nella bibliografia della voce Stealth.
-Il primo libro nasce nel 1991 come regalo di compleanno per una ragazza. Volevo regalarle qualcosa di unico e non acquistabile e così nacque il mio primo romanzo”
+Il primo libro nasce nel 1991 come regalo di compleanno per una ragazza. Volevo regalarle qualcosa di unico e non acquistabile e così nacque il mio primo romanzo: "Ciao Venere, prima stella della sera".
 Lo scritto iniziale fu profondamente modificato e pubblicato con il titolo di “1808 (quasi una storia)” per i tipi di Ibiskos. Il romanzo vinse come primo classificato il premio Metropoli di Torino e questo mi incoraggiò a continuare a scrivere.
 I miei scritti hanno sempre cercato di raccontare episodi poco noti della storia ed hanno sempre cercato di usare cifre stilistiche non canoniche.
 Maggiori informazioni nei box sottostanti dedicati ai singoli libri.
@@ -92,6 +92,7 @@ export const author = {
   heroImage: '/sfondo_autore.png',
   bioIntro: 'Sono nato nel 1965 a Livorno, mi sono diplomato al Liceo Scientifico Cecioni e laureato in Ingegneria Elettronica presso l’Università di Pisa.',
   bioFull: BIOGRAPHY,
+  contactEmail: 'Illustratore12.2012@gmail.com',
 }
 
 const makePresentations = (presentations: Presentation[]): Presentation[] =>
@@ -207,7 +208,7 @@ export const books: Book[] = [
     title: "ACW",
     year: 2013,
     coverImage: '/cop_antologia.jpg',
-    shortDescription: "Un racconto contenuto all'interno del libro 'il gioco di vivere'",
+    shortDescription: "Un racconto all'interno del libro 'il gioco di vivere'",
     plot: `Un racconto sul gioco e sui rapporti interpersonali che si vengono a creare durante le partite di wargaming.`,
     presentations: [],
     awards: [],
@@ -298,6 +299,10 @@ export const comments: ReaderComment[] = [
   { id: 'c6', name: 'M.D.', comment: 'Bellissimo! Come gli sarà venuto in mente di scriverlo come ballata? Ha saputo dare un ritmo tale che sembra di avvertire l’urgenza di terminare le navi in fretta. Una storia scritta benissimo, coinvolgente, con delle figure femminili vive e non scontate. Poteva essere retorico o scontato ed invece ha saputo parlare della guerra e dello sforzo bellico in modo unico e avvincente!' },
   { id: 'c7', name: 'Fabrizio Maestrini', comment: 'Mi sono commosso. Inaspettato, spiazzante.'},
   { id: 'c8', name: 'Dario Lupi', comment: 'Lo ho trovato estremamente epico e poetico e ha sbloccato in me alcuni ricordi che ho provato la prima volta che ho visitato il cantiere di mio padre. Il testo scorre, appassiona e riesce a trascinarti nello spirito di quel tempo e di quell’impresa. La tematica può sembrare di nicchia, ma di fatto gli avvenimenti parlano all’animo, narrando una storia che è di ingegno, sacrificio, sofferenza e pertinacia.'},
-  { id: 'c9', name: '', comment: ''},
-  { id: 'c10', name: '', comment: ''}
+  { id: 'c9', name: 'E.B.', comment: 'Emozionante! E mi ha fatto conoscere una parte di storia che non conoscevo assolutamente. La seconda parte è bellissima; si arriva alla fine e dispiace che il libro sia già finito. Lo stile che hai usato permette di creare delle immagini, come delle fotografie, che restano impresse nella mente. Una pecca: avrei aggiunto due cartine, una degli Usa, una del Mediterraneo, per mostrare i tanti luoghi che vengono citati e che mi hanno spinto a cercarli sulle mappe.'},
+  { id: 'c10', name: 'C.G.', comment: 'Veramente bello, ben scritto e originale'},
+  { id: 'c11', name: 'Il Migliore', comment: 'Molto bella la prima parte, con tanti espedienti poetici; molto bella l’introduzione alterna dei personaggi ed il seguirli in parallelo fino a vedere quando poi le loro vite si incrociano. Il linguaggio permette di mantenere ritmo serrato ed attenzione anche se l’argomento è di nicchia: ci si appassiona, si scoprono fatti, si è partecipi'},
+  { id: 'c12', name: 'V.C.', comment: 'Ho appena terminato la lettura. Il contenuto e il ritmo narrativo fanno del libro una lettura veramente avvincente. Ti auguro di cuore un buon riscontro di mercato: te lo meriti!'},
+  { id: 'c13', name: 'Massimo G.', comment: 'Appassionante ed unico; questo modo di scrivere è veramente fantastico!'},
+  { id: 'c14', name: 'Grazia B.', comment: 'Piaciuto molto; colpita dallo stile: non è un romanzo, non è una poesia, ma ti prende'},
 ]

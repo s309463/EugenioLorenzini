@@ -13,7 +13,7 @@ export function BooksTimeline() {
           <SectionHeading
             eyebrow="Un viaggio nel tempo"
             title="Libri"
-            description="Ho pubblicato quattro libri, tutti con un elemento comune: la Storia, in particolar modo i primi 3 sono romanzi storici, mentre l'ultimo pubblicato la Storia diventa un pretesto per raccontare la vita di persone semplici."
+            description="Ho pubblicato quattro libri e un racconto, tutti con un elemento comune: la Storia."
           />
         </Reveal>
       </div>

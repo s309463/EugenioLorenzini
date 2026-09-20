@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import { author } from '@/lib/data'
 import { cn } from '@/lib/utils'
 
 const links = [
@@ -11,7 +12,8 @@ const links = [
   { label: 'Libri', href: '/#books' },
   { label: 'Eventi futuri', href: '/#events' },
   { label: 'Commenti', href: '/#comments' },
-  { label: 'Articoli', href: '/#articles' }
+  { label: 'Articoli', href: '/#articles' },
+  { label: 'Contatti', href: '/#contacts' },
 ]
 
 export function Navbar() {
