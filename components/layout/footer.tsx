@@ -21,7 +21,7 @@ export function Footer() {
           <div className="max-w-sm">
             <p className="font-serif text-2xl font-semibold">Eugenio Lorenzini</p>
             <p className="mt-3 text-sm leading-relaxed text-primary-foreground/70">
-              La scrittura come passione, il raccontare storie come ossessione
+              {t.footer.tagline}
             </p>
           </div>
 

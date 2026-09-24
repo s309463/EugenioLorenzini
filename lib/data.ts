@@ -7,6 +7,7 @@ export type Presentation = {
   title: string
   titleEn?: string
   date: string
+  dateEn?: string
   time: string
   location: string
   locationEn?: string
@@ -135,6 +136,7 @@ const presentations: Presentation[] = [
     title: 'Presentazione a Torino',
     titleEn: 'Presentation in Turin',
     date: '16 Gennaio 2026',
+    dateEn: 'January 16, 2026',
     time: '17:30',
     location: 'Circolo dei Lettori',
     city: 'Torino',
@@ -147,6 +149,7 @@ const presentations: Presentation[] = [
     title: 'Presentazione a Firenze',
     titleEn: 'Presentation in Florence',
     date: '27 Gennaio 2026',
+    dateEn: 'January 27, 2026',
     time: '18:00',
     location: 'Lega Navale Italiana',
     city: 'Firenze',
@@ -159,6 +162,7 @@ const presentations: Presentation[] = [
     title: 'Presentazione a Livorno',
     titleEn: 'Presentation in Livorno',
     date: '30 Gennaio 2026',
+    dateEn: 'January 30, 2026',
     time: '18:30',
     location: 'Libreria Feltrinelli',
     city: 'Livorno',
@@ -171,6 +175,7 @@ const presentations: Presentation[] = [
     title: 'Presentazione a Settignano',
     titleEn: 'Presentation in Settignano',
     date: '21 Febbraio 2026',
+    dateEn: 'February 21, 2026',
     time: '18:00',
     location: 'Casa del Popolo',
     city: 'Settignano (FI)',
@@ -183,6 +188,7 @@ const presentations: Presentation[] = [
     title: 'Presentazione a Milano',
     titleEn: 'Presentation in Milan',
     date: '7 Marzo 2026',
+    dateEn: 'March 7, 2026',
     time: '15:00',
     location: "Associazione Nazionale Marinai d'Italia",
     city: 'Milano',
@@ -195,6 +201,7 @@ const presentations: Presentation[] = [
     title: 'Presentazione a Livorno',
     titleEn: 'Presentation in Livorno',
     date: '3 Aprile 2026',
+    dateEn: 'April 3, 2026',
     time: '17:30',
     location: 'Lega Navale Italiana',
     city: 'Livorno',
@@ -207,6 +214,7 @@ const presentations: Presentation[] = [
     title: 'Presentazione al Salone del Libro',
     titleEn: 'Presentation at the Turin Book Fair',
     date: '15 Maggio 2026',
+    dateEn: 'May 15, 2026',
     time: '15:00',
     location: 'Lingotto Fiere',
     city: 'Torino',

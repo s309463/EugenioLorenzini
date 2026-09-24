@@ -9,6 +9,7 @@ export function PresentationCard({ presentation }: { presentation: Presentation 
   const title = locale === 'en' ? presentation.titleEn ?? presentation.title : presentation.title
   const location = locale === 'en' ? presentation.locationEn ?? presentation.location : presentation.location
   const description = locale === 'en' ? presentation.descriptionEn ?? presentation.description : presentation.description
+  const date = locale === 'en' ? presentation.dateEn ?? translateDate(presentation.date) : presentation.date
   return (
     <article className="group overflow-hidden rounded-lg border border-border bg-card transition-all duration-300 hover:border-accent/50 hover:shadow-lg">
       {presentation.image && (
@@ -27,7 +28,7 @@ export function PresentationCard({ presentation }: { presentation: Presentation 
         <div className="mt-3 space-y-1.5 text-sm text-muted-foreground">
           <span className="flex items-center gap-2">
             <CalendarDays className="size-4 text-accent" aria-hidden="true" />
-            {presentation.date}
+            {date}
           </span>
           <span className="flex items-center gap-2">
             <Clock className="size-4 text-accent" aria-hidden="true" />
@@ -55,4 +56,33 @@ export function PresentationCard({ presentation }: { presentation: Presentation 
       </div>
     </article>
   )
+}
+
+function translateDate(date: string) {
+  const months: Record<string, string> = {
+    Gennaio: 'January',
+    Febbraio: 'February',
+    Marzo: 'March',
+    Aprile: 'April',
+    Maggio: 'May',
+    Giugno: 'June',
+    Luglio: 'July',
+    Agosto: 'August',
+    Settembre: 'September',
+    Ottobre: 'October',
+    Novembre: 'November',
+    Dicembre: 'December',
+  }
+  const isoMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date)
+  if (isoMatch) {
+    const [, year, month, day] = isoMatch
+    const monthNames = Object.values(months)
+    return `${monthNames[Number(month) - 1]} ${Number(day)}, ${year}`
+  }
+  const italianMatch = /^(\d{1,2})\s+([A-Za-zÀ-ÿ]+)\s+(\d{4})$/.exec(date)
+  if (italianMatch) {
+    const [, day, month, year] = italianMatch
+    return `${months[month] ?? month} ${Number(day)}, ${year}`
+  }
+  return date
 }

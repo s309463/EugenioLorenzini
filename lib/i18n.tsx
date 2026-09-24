@@ -27,7 +27,8 @@ type Dictionary = {
   }
   comments: { title: string; description: string; previous: string; next: string; choose: string }
   articles: { eyebrow: string; title: string; description: string; publishedOn: string }
-  contact: { title: string; writeToMe: string; email: string }
+  contact: { title: string; writeToMe: string; email: string; description: string }
+  footer: { tagline: string }
   book: {
     back: string
     story: string
@@ -73,7 +74,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
     events: { eyebrow: "Dove troverete l'autore", title: 'Eventi futuri', description: 'Venite se avete voglia di fare due chiacchiere o farvi firmare il libro', emptyTitle: 'Non ci sono eventi programmati.', emptyDescription: 'Controlla tra qualche giorno se ci sono nuove date', moreInformation: 'Maggiori informazioni' },
     comments: { title: 'Cosa dicono i lettori', description: 'Qualche lettore ha deciso di commentare il libro dopo averlo letto', previous: 'Commento precedente', next: 'Commento successivo', choose: 'Scegli commento' },
     articles: { eyebrow: 'Prime pubblicazioni', title: 'Articoli', description: 'Iniziai a scrivere a 16 anni per JP4, rivista nazionale di aeronautica, con la quale ho collaborato fino al 1991. Un mio articolo (Stealth ultima frontiera) è citato su Wikipedia, nella bibliografia della voce Stealth.', publishedOn: 'Pubblicato su:' },
-    contact: { title: 'Contatti', writeToMe: 'Scrivimi', email: 'Email' },
+    contact: { title: 'Contatti', writeToMe: 'Scrivimi', email: 'Email', description: "Ti risponderà direttamente per informazioni e proposte legate ai suoi libri e alle sue iniziative." },
+    footer: { tagline: 'La scrittura come passione, il raccontare storie come ossessione' },
     book: { back: 'Torna a tutti i libri', story: 'La storia', summary: 'Riassunto', reviews: 'Recensioni', reviewsDescription: 'Frammenti di critica e attenzione mediatica dedicati al volume.', pastPresentations: 'Presentazioni passate', awardsEyebrow: 'Riconoscimenti', awards: 'Premi', awardsDescription: 'Premi e riconoscimenti ricevuti da questo lavoro.', notFound: 'Libro non trovato' },
     admin: { login: 'Accesso admin', email: 'Email', password: 'Password', signIn: 'Accedi', signOut: 'Esci', dashboard: 'Gestione presentazioni', addPresentation: 'Aggiungi presentazione', title: 'Titolo', date: 'Data', time: 'Orario', location: 'Luogo', city: 'Città', description: 'Descrizione', link: 'Link', photo: 'Foto della presentazione', save: 'Salva presentazione', saving: 'Salvataggio...', saved: 'Presentazione salvata', error: 'Si è verificato un errore.', configuration: 'Supabase non è configurato. Inserisci URL e anon key in .env.local e riavvia il server.' },
   },
@@ -85,7 +87,8 @@ export const dictionaries: Record<Locale, Dictionary> = {
     events: { eyebrow: 'Where to meet the author', title: 'Upcoming events', description: 'Come by for a chat or to have your book signed', emptyTitle: 'There are no scheduled events.', emptyDescription: 'Check back in a few days for new dates', moreInformation: 'More information' },
     comments: { title: 'What readers say', description: 'Some readers decided to share their thoughts after reading the book', previous: 'Previous comment', next: 'Next comment', choose: 'Choose comment' },
     articles: { eyebrow: 'First publications', title: 'Articles', description: 'I began writing for JP4, a national aviation magazine, at the age of sixteen and collaborated with it until 1991. One of my articles, Stealth: the final frontier, is cited on Wikipedia in the bibliography of the Stealth entry.', publishedOn: 'Published in:' },
-    contact: { title: 'Contact', writeToMe: 'Write to me', email: 'Email' },
+    contact: { title: 'Contact', writeToMe: 'Write to me', email: 'Email', description: 'The author will reply directly to requests for information and proposals related to his books and initiatives.' },
+    footer: { tagline: 'Writing as a passion, storytelling as an obsession' },
     book: { back: 'Back to all books', story: 'The story', summary: 'Summary', reviews: 'Reviews', reviewsDescription: 'Reviews and media attention dedicated to this volume.', pastPresentations: 'Past presentations', awardsEyebrow: 'Recognition', awards: 'Awards', awardsDescription: 'Awards and recognition received by this work.', notFound: 'Book not found' },
     admin: { login: 'Admin access', email: 'Email', password: 'Password', signIn: 'Sign in', signOut: 'Sign out', dashboard: 'Presentation management', addPresentation: 'Add presentation', title: 'Title', date: 'Date', time: 'Time', location: 'Venue', city: 'City', description: 'Description', link: 'Link', photo: 'Presentation photo', save: 'Save presentation', saving: 'Saving...', saved: 'Presentation saved', error: 'Something went wrong.', configuration: 'Supabase is not configured. Add the URL and anon key to .env.local and restart the server.' },
   },

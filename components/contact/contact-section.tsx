@@ -36,7 +36,7 @@ export function ContactSection() {
             </Link>
 
             <p className="mt-6 text-center text-base leading-relaxed text-muted-foreground">
-              Ti risponderà direttamente per informazioni e proposte legate ai suoi libri e alle sue iniziative.
+              {t.contact.description}
             </p>
           </div>
         </Reveal>
