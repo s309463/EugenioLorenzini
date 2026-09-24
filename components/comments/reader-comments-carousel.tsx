@@ -7,9 +7,11 @@ import { Reveal } from '@/components/reveal'
 import { SectionHeading } from '@/components/section-heading'
 import { CommentCard } from './comment-card'
 import { cn } from '@/lib/utils'
+import { useLanguage } from '@/lib/i18n'
 
 export function ReaderCommentsCarousel() {
   const [index, setIndex] = useState(0)
+  const { t } = useLanguage()
   const count = comments.length
   const touchStartX = useRef<number | null>(null)
 
@@ -50,8 +52,8 @@ export function ReaderCommentsCarousel() {
           <SectionHeading
             align="center"
             eyebrow=""
-            title="Cosa dicono i lettori"
-            description="Qualche lettore ha deciso di commentare il libro dopo averlo letto"
+            title={t.comments.title}
+            description={t.comments.description}
           />
         </Reveal>
 
@@ -63,7 +65,7 @@ export function ReaderCommentsCarousel() {
             className="relative outline-none"
             role="group"
             aria-roledescription="carousel"
-            aria-label="Reader comments"
+            aria-label={t.comments.title}
             tabIndex={0}
             onKeyDown={onKeyDown}
             onTouchStart={onTouchStart}
@@ -92,13 +94,13 @@ export function ReaderCommentsCarousel() {
               <button
                 type="button"
                 onClick={prev}
-                aria-label="Previous comment"
+                aria-label={t.comments.previous}
                 className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:border-accent hover:text-accent"
               >
                 <ChevronLeft className="size-5" />
               </button>
 
-              <div className="flex items-center gap-2.5" role="tablist" aria-label="Choose comment">
+              <div className="flex items-center gap-2.5" role="tablist" aria-label={t.comments.choose}>
                 {comments.map((comment, i) => (
                   <button
                     key={comment.id}
@@ -118,7 +120,7 @@ export function ReaderCommentsCarousel() {
               <button
                 type="button"
                 onClick={next}
-                aria-label="Next comment"
+                aria-label={t.comments.next}
                 className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:border-accent hover:text-accent"
               >
                 <ChevronRight className="size-5" />

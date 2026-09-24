@@ -1,8 +1,12 @@
+'use client'
+
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 import { author } from '@/lib/data'
+import { useLanguage } from '@/lib/i18n'
 
 export function HeroSection() {
+  const { t } = useLanguage()
   return (
     <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Background image with blur + dark overlay for readability */}
@@ -31,20 +35,20 @@ export function HeroSection() {
             href="/#books"
             className="rounded-full bg-accent px-8 py-3 text-sm font-medium tracking-wide text-accent-foreground transition-transform hover:scale-105"
           >
-            Esplora i Libri
+            {t.hero.exploreBooks}
           </Link>
           <Link
             href="/#biography"
             className="rounded-full border border-white/40 px-8 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-white/10"
           >
-            Leggi la Biografia
+            {t.hero.biography}
           </Link>
         </div>
       </div>
 
       <Link
         href="/#biography"
-        aria-label="Scroll to biography"
+        aria-label={t.hero.scroll}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/80 transition-colors hover:text-accent"
       >
         <ChevronDown className="size-8 animate-bounce-slow" />

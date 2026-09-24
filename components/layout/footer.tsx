@@ -1,16 +1,19 @@
+'use client'
+
 import Link from 'next/link'
 import { author } from '@/lib/data'
-
-const links = [
-  { label: 'Biografia', href: '/#biography' },
-  { label: 'Libri', href: '/#books' },
-  { label: 'Eventi', href: '/#events' },
-  { label: 'Commenti', href: '/#comments' },
-  { label: 'Articoli', href: '/#articles' },
-  { label: 'Contatti', href: '/#contacts' },
-]
+import { useLanguage } from '@/lib/i18n'
 
 export function Footer() {
+  const { t } = useLanguage()
+  const links = [
+    { label: t.nav.biography, href: '/#biography' },
+    { label: t.nav.books, href: '/#books' },
+    { label: t.nav.events, href: '/#events' },
+    { label: t.nav.comments, href: '/#comments' },
+    { label: t.nav.articles, href: '/#articles' },
+    { label: t.nav.contacts, href: '/#contacts' },
+  ]
   return (
     <footer className="border-t border-border bg-primary text-primary-foreground">
       <div className="mx-auto max-w-6xl px-6 py-16">

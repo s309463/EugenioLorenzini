@@ -1,8 +1,14 @@
 import Link from 'next/link'
 import type { Book } from '@/lib/data'
 import { BookCard } from './book-card'
+import { useLanguage } from '@/lib/i18n'
 
 export function BookTimelineItem({ book }: { book: Book }) {
+  const { locale } = useLanguage()
+  const title = locale === 'en' ? book.titleEn ?? book.title : book.title
+  const subtitle = locale === 'en' ? book.subtitleEn ?? book.subtitle : book.subtitle
+  const description = locale === 'en' ? book.shortDescriptionEn ?? book.shortDescription : book.shortDescription
+
   return (
     <div className="min-w-0">
       <div className="relative z-10 mb-3 text-center">
@@ -14,20 +20,20 @@ export function BookTimelineItem({ book }: { book: Book }) {
       </div>
 
       <div>
-        <div className="mx-auto w-full max-w-[200px]">
+        <div className="mx-auto w-full max-w-full">
           <BookCard book={book} />
         </div>
         <div className="mt-4 text-center">
           <Link href={`/books/${book.id}`}>
             <h3 className="text-balance font-serif text-lg font-semibold leading-snug text-foreground transition-colors hover:text-accent">
-              {book.title}
+              {title}
             </h3>
           </Link>
-          {book.subtitle && (
-            <p className="mt-1 text-sm italic text-muted-foreground">{book.subtitle}</p>
+          {subtitle && (
+            <p className="mt-1 text-sm italic text-muted-foreground">{subtitle}</p>
           )}
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            {book.shortDescription}
+            {description}
           </p>
         </div>
       </div>

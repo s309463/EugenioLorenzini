@@ -6,9 +6,11 @@ import { author } from '@/lib/data'
 import { Reveal } from '@/components/reveal'
 import { SectionHeading } from '@/components/section-heading'
 import { cn } from '@/lib/utils'
+import { useLanguage } from '@/lib/i18n'
 
 export function BiographySection() {
   const [expanded, setExpanded] = useState(false)
+  const { locale, t } = useLanguage()
 
   return (
     <section id="biography" className="scroll-mt-20 bg-background py-24 md:py-32">
@@ -27,10 +29,12 @@ export function BiographySection() {
           </Reveal>
 
           <Reveal delay={120}>
-            <SectionHeading eyebrow="SULL'AUTORE" title="Biografia" />
+            <SectionHeading eyebrow={t.biography.eyebrow} title={t.biography.title} />
 
             <p className="mt-8 whitespace-pre-line text-lg leading-relaxed text-foreground/90">
-              {expanded ? author.bioFull : author.bioIntro}
+              {expanded
+                ? (locale === 'en' ? author.bioFullEn : author.bioFull)
+                : (locale === 'en' ? author.bioIntroEn : author.bioIntro)}
             </p>
 
             <button
@@ -39,7 +43,7 @@ export function BiographySection() {
               className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-foreground"
               aria-expanded={expanded}
             >
-              {expanded ? 'Mostra meno' : 'Leggi tutta la biografia'}
+              {expanded ? t.biography.showLess : t.biography.readMore}
               <ChevronDown
                 className={cn('size-4 transition-transform', expanded && 'rotate-180')}
               />

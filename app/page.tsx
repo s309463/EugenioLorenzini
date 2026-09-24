@@ -5,7 +5,6 @@ import { BiographySection } from '@/components/biography/biography-section'
 import { ArticlesSection } from '@/components/articles/articles-section'
 import { BooksTimeline } from '@/components/books/books-timeline'
 import { UpcomingEvents } from '@/components/events/upcoming-events'
-import { ReaderCommentsCarousel } from '@/components/comments/reader-comments-carousel'
 import { ContactSection } from '@/components/contact/contact-section'
 
 export default function HomePage() {
@@ -17,7 +16,6 @@ export default function HomePage() {
         <BiographySection />
         <BooksTimeline />
         <UpcomingEvents />
-        <ReaderCommentsCarousel />
         <ArticlesSection />
         <ContactSection />
       </main>

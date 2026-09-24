@@ -5,18 +5,20 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { author } from '@/lib/data'
 import { cn } from '@/lib/utils'
-
-const links = [
-  { label: 'Home', href: '/#home' },
-  { label: 'Biografia', href: '/#biography' },
-  { label: 'Libri', href: '/#books' },
-  { label: 'Eventi futuri', href: '/#events' },
-  { label: 'Commenti', href: '/#comments' },
-  { label: 'Articoli', href: '/#articles' },
-  { label: 'Contatti', href: '/#contacts' },
-]
+import { LanguageSwitcher } from '@/components/language-switcher'
+import { useLanguage } from '@/lib/i18n'
 
 export function Navbar() {
+  const { t } = useLanguage()
+  const links = [
+    { label: t.nav.home, href: '/#home' },
+    { label: t.nav.biography, href: '/#biography' },
+    { label: t.nav.books, href: '/#books' },
+    { label: t.nav.events, href: '/#events' },
+    { label: t.nav.comments, href: '/#comments' },
+    { label: t.nav.articles, href: '/#articles' },
+    { label: t.nav.contacts, href: '/#contacts' },
+  ]
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -47,21 +49,24 @@ export function Navbar() {
           Eugenio Lorenzini
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
-          {links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={cn(
-                  'text-sm tracking-wide transition-colors hover:text-accent',
-                  scrolled ? 'text-muted-foreground' : 'text-background/90 drop-shadow-sm',
-                )}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden items-center gap-6 md:flex">
+          <ul className="flex items-center gap-8">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={cn(
+                    'text-sm tracking-wide transition-colors hover:text-accent',
+                    scrolled ? 'text-muted-foreground' : 'text-background/90 drop-shadow-sm',
+                  )}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <LanguageSwitcher />
+        </div>
 
         <button
           type="button"
@@ -92,6 +97,9 @@ export function Navbar() {
               </li>
             ))}
           </ul>
+          <div className="mt-3 flex justify-end text-foreground">
+            <LanguageSwitcher />
+          </div>
         </div>
       )}
     </header>

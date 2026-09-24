@@ -1,14 +1,18 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, CalendarDays } from 'lucide-react'
+import { CalendarDays } from 'lucide-react'
 import { books, getBook } from '@/lib/data'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { Reveal } from '@/components/reveal'
-import { SectionHeading } from '@/components/section-heading'
 import { PresentationCard } from '@/components/books/presentation-card'
 import { AwardItem } from '@/components/books/award-item'
+import { getPastPresentations } from '@/lib/presentations'
+import { BookLocalizedCopy, BookLocalizedHeading } from '@/components/books/book-localized-copy'
+import { BookSectionHeading } from '@/components/books/book-section-heading'
+import { ReviewCard } from '@/components/books/review-card'
+import { BookBackLink } from '@/components/books/book-back-link'
+import { ReaderCommentsCarousel } from '@/components/comments/reader-comments-carousel'
 
 export function generateStaticParams() {
   return books.map((book) => ({ id: book.id }))
@@ -36,6 +40,8 @@ export default async function BookPage({
   const { id } = await params
   const book = getBook(id)
   if (!book) notFound()
+  const storedPresentations = await getPastPresentations(book.id)
+  const presentations = storedPresentations.length > 0 ? storedPresentations : book.presentations
 
   return (
     <>
@@ -44,13 +50,7 @@ export default async function BookPage({
         {/* Hero */}
         <section className="bg-secondary/40 pb-16 pt-28 md:pb-20 md:pt-36">
           <div className="mx-auto max-w-6xl px-6">
-            <Link
-              href="/#books"
-              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
-            >
-              <ArrowLeft className="size-4" />
-              Torna a tutti i libri
-            </Link>
+            <BookBackLink />
 
             <div className="mt-10 grid gap-10 md:grid-cols-[280px_1fr] md:gap-14">
               <Reveal>
@@ -67,16 +67,9 @@ export default async function BookPage({
                   <CalendarDays className="size-4" />
                   {book.year}
                 </span>
-                <h1 className="mt-4 text-balance font-serif text-4xl font-semibold text-foreground md:text-5xl lg:text-6xl">
-                  {book.title}
-                </h1>
-                {book.subtitle && (
-                  <p className="mt-4 text-pretty font-serif text-xl italic text-muted-foreground">
-                    {book.subtitle}
-                  </p>
-                )}
+                <BookLocalizedHeading book={book} />
                 <p className="mt-6 max-w-xl text-pretty leading-relaxed text-foreground/90">
-                  {book.shortDescription}
+                  <BookLocalizedCopy book={book} part="short" />
                 </p>
               </Reveal>
             </div>
@@ -87,12 +80,7 @@ export default async function BookPage({
         <section className="bg-background py-20 md:py-28">
           <div className="mx-auto max-w-3xl px-6">
             <Reveal>
-              <SectionHeading eyebrow="La storia" title="Riassunto" />
-              <div className="mt-8 space-y-5 text-pretty leading-relaxed text-muted-foreground">
-                {book.plot.split('\n').map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
+              <BookLocalizedCopy book={book} part="plot" />
             </Reveal>
           </div>
         </section>
@@ -102,29 +90,13 @@ export default async function BookPage({
           <section className="bg-secondary/40 py-20 md:py-28">
             <div className="mx-auto max-w-6xl px-6">
               <Reveal>
-                <SectionHeading
-                  title="Recensioni"
-                  description="Frammenti di critica e attenzione mediatica dedicati al volume."
-                />
+                <BookSectionHeading section="reviews" />
               </Reveal>
 
               <div className="mt-14 grid gap-6 lg:grid-cols-3">
                 {book.officialReviews.map((review, i) => (
                   <Reveal key={review.id} delay={i * 80}>
-                    <article className="flex h-full flex-col rounded-lg border border-border bg-card p-6 shadow-sm">
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="text-xs font-medium tracking-[0.25em] text-accent">
-                          {review.source}
-                        </span>
-                        {review.date && (
-                          <span className="text-sm text-muted-foreground">{review.date}</span>
-                        )}
-                      </div>
-
-                      <p className="mt-5 flex-1 text-base leading-relaxed text-foreground/90">
-                        “{review.quote}”
-                      </p>
-                    </article>
+                    <ReviewCard review={review} />
                   </Reveal>
                 ))}
               </div>
@@ -133,16 +105,14 @@ export default async function BookPage({
         )}
 
         {/* Presentations */}
-        {book.presentations.length > 0 && (
+        {presentations.length > 0 && (
           <section className="bg-secondary/40 py-20 md:py-28">
             <div className="mx-auto max-w-6xl px-6">
               <Reveal>
-                <SectionHeading
-                  title="Presentazioni passate"
-                />
+                <BookSectionHeading section="presentations" />
               </Reveal>
               <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {book.presentations.map((presentation, i) => (
+                {presentations.map((presentation, i) => (
                   <Reveal key={presentation.id} delay={i * 80}>
                     <PresentationCard presentation={presentation} />
                   </Reveal>
@@ -152,19 +122,17 @@ export default async function BookPage({
           </section>
         )}
 
+        {book.id === 'Progetto-Liberty' && <ReaderCommentsCarousel />}
+
         {/* Awards */}
-        {book.awards.length > 0 && (
+        {(book.awards ?? []).length > 0 && (
           <section className="bg-background py-20 md:py-28">
             <div className="mx-auto max-w-4xl px-6">
               <Reveal>
-                <SectionHeading
-                  eyebrow="Riconoscimenti"
-                  title="Premi"
-                  description="Premi e riconoscimenti ricevuti da questo lavoro."
-                />
+                <BookSectionHeading section="awards" />
               </Reveal>
               <div className="mt-14 grid gap-5 sm:grid-cols-2">
-                {book.awards.map((award, i) => (
+                {(book.awards ?? []).map((award, i) => (
                   <Reveal key={award.id} delay={i * 80}>
                     <AwardItem award={award} />
                   </Reveal>
