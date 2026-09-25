@@ -14,7 +14,19 @@ export function ReviewCard({ review }: { review: OfficialReview }) {
         <span className="text-xs font-medium tracking-[0.25em] text-accent">{review.source}</span>
         {date && <span className="text-sm text-muted-foreground">{date}</span>}
       </div>
-      <p className="mt-5 flex-1 text-base leading-relaxed text-foreground/90">“{quote}”</p>
+      <p className="mt-5 flex-1 text-base leading-relaxed text-foreground/90">
+        “{formatPublicationNames(quote)}”
+      </p>
     </article>
+  )
+}
+
+function formatPublicationNames(text: string) {
+  const publicationNames = ['Panorama Difesa', 'Leggere tutti', 'letture in pozzetto', 'Reading in the Cockpit']
+  const pattern = new RegExp(`(${publicationNames.join('|')})`, 'g')
+  const parts = text.split(pattern)
+
+  return parts.map((part, index) =>
+    publicationNames.includes(part) ? <em key={index}>{part}</em> : part,
   )
 }

@@ -299,7 +299,7 @@ export const books: Book[] = [
     title: 'Progetto Liberty',
     titleEn: 'Liberty Project',
     subtitle: 'Ballata per eroi misconosciuti',
-    subtitleEn: 'A ballad for overlooked heroes',
+    subtitleEn: 'A ballad for unsung heroes',
     year: 2025,
     coverImage: '/cop_Liberty.png',
     shortDescription: "Un esperimento, una ballata, per provare a ricordare tutte quelle figure che nell'ombra hanno permesso la vittoria degli Alleati alla fine della 2° Guerra Mondiale",
@@ -314,24 +314,24 @@ export const books: Book[] = [
         source: 'Panorma difesa',
         date: 'Aprile 2026',
         dateEn: 'April 2026',
-        quote: 'Recensione di Angelo Pinti per la rivista "Panorama Difesa"'
-        ,quoteEn: 'Review by Angelo Pinti for Panorama Difesa magazine.'
+        quote: ' Recensione di Angelo Pinti per la rivista Panorama Difesa ',
+        quoteEn: 'Review by Angelo Pinti for Panorama Difesa magazine.'
       },
       {
         id: 'review-leggere-tutti',
         source: 'Leggere tutti',
         date: 'Maggio 2026',
         dateEn: 'May 2026',
-        quote: 'Recensione di Loredana Simonetti per la rivista "Leggere tutti"'
-        ,quoteEn: 'Review by Loredana Simonetti for Leggere tutti magazine.'
+        quote: ' Recensione di Loredana Simonetti per la rivista Leggere tutti ',
+        quoteEn: 'Review by Loredana Simonetti for Leggere tutti magazine.'
       },
       {
         id: 'review-lega-navale',
         source: 'Lega Navale',
         date: 'Luglio 2026',
         dateEn: 'July 2026',
-        quote: 'Recensione di Luciano Magnanelli, vicepresidente della Lega Navale Italiana, per la serie "letture in pozzetto"'
-        ,quoteEn: 'Review by Luciano Magnanelli, vice president of the Italian Naval League, for the Reading in the Cockpit series.'
+        quote: ' Recensione di Luciano Magnanelli, vicepresidente della Lega Navale Italiana, per la serie letture in pozzetto ',
+        quoteEn: 'Review by Luciano Magnanelli, vice president of the Italian Naval League, for the Reading in the Cockpit series.'
       },
       
     ]

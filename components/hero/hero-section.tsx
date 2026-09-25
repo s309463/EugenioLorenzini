@@ -6,7 +6,8 @@ import { author } from '@/lib/data'
 import { useLanguage } from '@/lib/i18n'
 
 export function HeroSection() {
-  const { t } = useLanguage()
+  const { locale, t } = useLanguage()
+  const bioIntro = locale === 'en' ? author.bioIntroEn : author.bioIntro
   return (
     <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Background image with blur + dark overlay for readability */}
@@ -27,7 +28,7 @@ export function HeroSection() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-xl text-pretty text-sm leading-relaxed text-white/70">
-          {author.bioIntro}
+          {bioIntro}
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

@@ -15,7 +15,6 @@ export function Navbar() {
     { label: t.nav.biography, href: '/#biography' },
     { label: t.nav.books, href: '/#books' },
     { label: t.nav.events, href: '/#events' },
-    { label: t.nav.comments, href: '/#comments' },
     { label: t.nav.articles, href: '/#articles' },
     { label: t.nav.contacts, href: '/#contacts' },
   ]
